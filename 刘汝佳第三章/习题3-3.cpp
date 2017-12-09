@@ -17,7 +17,7 @@ int main(){
 			case '6'-0:	count[6]++;	break;
 			case '7'-0:	count[7]++;	break;
 			case '8'-0:	count[8]++;	break;
-			case '9'-0:	cpunt[9]++;	break;
+			case '9'-0:	count[9]++;	break;
 		}
 	}
 	for(int i = 0;i<10;i++)

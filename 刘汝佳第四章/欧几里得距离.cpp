@@ -4,7 +4,7 @@ double diat(point a, point b){
 	return htpot(a.x - b.x, a.y - b.y);
 }
 int main(){
-    point a, b;
+	struct point a, b;
 	double c;
 	scanf("%lf %lf %lf %lf",&a.x, &a.y, %b.x , %b.y);
 	c = diat(a,b);
