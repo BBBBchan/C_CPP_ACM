@@ -30,7 +30,10 @@ int main(){
 				printf("NO\n");
 				continue;}
 			if(rcount >=2){
-				printf("YES\n");
+				if(gcount%2 == 1)
+					printf("YES\n");
+				else	
+					printf("NO\n");
 				continue;
 			}
 			if(gcount == 0 || bcount ==0){
