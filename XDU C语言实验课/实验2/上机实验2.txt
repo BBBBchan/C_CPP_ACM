@@ -1,0 +1,93 @@
+上机实验2 孙博远 17130120188
+
+实验题目1
+#include <stdio.h>
+int main()
+{
+	int a, b, c,t;
+	scanf("%d%d%d",&a,&b,&c);
+	if(a > b){
+		t = a;
+		a = b;
+		b = t;
+	}
+	if(a > c){
+		t = a;
+		a = c;
+		c = t;
+	}
+	if(b > c){
+		t = b;
+		b = c;
+		c = t;
+	}
+	printf("%d %d %d ",a,b,c);
+	return 0;
+}
+
+实验题目2
+#include <stdio.h>
+int main(){
+	int a, b, c;
+	double x1,x2;
+	double delta;
+	scanf("%d %d %d",&a,&b,&c);
+	delta = b*b-4*a*c;
+	if(delta < 0)
+		printf("No answer");
+	else {
+		x1 = (-1.0*b + delta)/(2*a);
+		x2 = (-1.0*b - delta)/(2*a);
+		printf("x1 = %lf, x2 = %lf",x1,x2);
+	}
+	return 0;
+}
+
+实验问题3
+#include <stdio.h>
+int main(){
+	int year;
+	scanf("%d",&year);
+	if(year%4 == 0 && year%100 !=0 || year % 400 == 0)
+		printf("yes!\n");
+	else
+		printf("no!\n");
+	return 0;
+}
+
+实验问题4
+#include <stdio.h>
+int main(){
+	int n,kase = 1;
+	scanf("%d",&n);
+	for(int i = 2;i <= n/2;n++){
+		if(n%i == 0){
+			kase = 0;
+			break;
+		}
+	}
+	if(kase){
+		printf("yes!\n");
+	}
+	else 
+		printf("no!\n");
+	return 0;
+}
+
+实验问题5
+#include <stdio.h>
+int main()
+{
+	int m,n,p,q,t,times;
+	scanf("%d %d",&m,&n);
+	p = m;
+	q = n;
+	while(n != 0){
+		t = n;
+		n = m % n;
+		m = t;	
+	}
+	times = p*q/m;
+	printf("%d %d",m,times); 
+	return 0;
+}

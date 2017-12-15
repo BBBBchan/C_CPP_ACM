@@ -29,7 +29,7 @@ int main(){
 			if(rcount > n){
 				printf("NO\n");
 				continue;}
-			if(rcount >=2){
+			if(rcount >= 2){
 				if(gcount%2 == 1)
 					printf("YES\n");
 				else	
