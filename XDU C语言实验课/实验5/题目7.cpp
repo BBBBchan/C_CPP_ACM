@@ -54,23 +54,23 @@ void mult(char *a,char*b,char*aws,int n,int m){
 }
 int jianfa(char *a,char *b,char*aws,int x,int y){
 	int kase =0,k=0;
-	if(x > y){					//´ó¼õĞ¡
+	if(x > y){					//å¤§å‡å°
 		minus(a,b,aws,x,y);
 	}
 	else if(x < y){
 		minus(b,a,aws,y,x);
-		kase = 1;			//Ğ¡¼õ´ó
+		kase = 1;			//å°å‡å¤§
 	}
 	else {
 		k = strcmp(a,b);
 		if(k == 0)
-			printf("0" );
+			kase = -1;
 		else if(k > 0)
 			minus(a,b,aws,x,y);
 		else{
 			kase = 1;
 			minus(b,a,aws,y,x);
-		}					//Î»ÊıÏàÍ¬
+		}					//ä½æ•°ç›¸åŒ
 	}
 	return kase;
 }
@@ -78,7 +78,7 @@ int main(){
 	char a[maxn],b[maxn];
 	int n = maxn-1,kase =0,k=0,p = 0,q = 0;
 	char aws[205];
-/*¼Ó·¨*/
+/*åŠ æ³•*/
 	memset(aws,0,sizeof(aws));
 	memset(a,0,sizeof(a));
 	memset(b,0,sizeof(b));
@@ -88,62 +88,83 @@ int main(){
 	if(a[0] == '-'){
 		for(int i = 1; i < x;i++)
 			a[i-1] = a[i];
+		a[x-1] = 0;
 		x--;
+		p = 1;
 	}
 	if(b[0] == '-'){
 		for(int i = 1; i < y;i++)
 			b[i-1] = b[i];
+		b[y-1] = 0;
 		y--;
+		q = 1;
 	}
-
-	sum(a,b,aws,x,y);
+	if(p == 0&&q == 0){
+		sum(a,b,aws,x,y);
+	}
+	else if(p == 0)
+		kase = jianfa(a,b,aws,x,y);
+	else if(q == 0)
+		kase = jianfa(b,a,aws,y,x);
+	else{
+		printf("-");
+		sum(a,b,aws,x,y);
+	}
 	while(aws[n] == 0){
 		n--;
 	}
 	if(n == -1)
+		kase = -1;
+	if(kase == 1)
+		printf("-");
+	if(kase == -1)
 		printf("0");
 	for(;n>=0;n--)
 	printf("%d", aws[n]);
 	printf("\n");
-/*¼õ·¨*/
+/*å‡æ³•*/
 	memset(aws,0,sizeof(aws));
-	kase = jianfa(a,b,aws,x,y);
-	// if(x > y){					//´ó¼õĞ¡
-	// 	minus(a,b,aws,x,y);
-	// }
-	// else if(x < y){
-	// 	minus(b,a,aws,y,x);
-	// 	kase = 1;			//Ğ¡¼õ´ó
-	// }
-	// else {
-	// 	k = strcmp(a,b);
-	// 	if(k == 0)
-	// 		printf("0" );
-	// 	else if(k > 0)
-	// 		minus(a,b,aws,x,y);
-	// 	else{
-	// 		kase = 1;
-	// 		minus(b,a,aws,y,x);
-	// 	}					//Î»ÊıÏàÍ¬
-	// }
+	kase = 0;
+	if(p == 0 && q == 0)
+		kase = jianfa(a,b,aws,x,y);
+	else if(p == 0)
+		sum(a,b,aws,x,y);
+	else if(q == 0){
+		kase = 1;
+		sum(a,b,aws,x,y);
+	}
+	else
+		kase = jianfa(b,a,aws,y,x);
 	n = maxn-1;	
 	while(aws[n] == 0){
 		n--;
 	}
 	if(kase == 1)
 		printf("-");
+	if(kase == -1)
+		printf("0");
 	for(;n>=0;n--)
 		printf("%d", aws[n]);
 
 	printf("\n");
 	memset(aws,0,sizeof(aws));
-	mult(a,b,aws,x,y);
+	kase = 0;
+	if(p == q)
+		mult(a,b,aws,x,y);
+	else{
+		kase = 1;
+		mult(a,b,aws,x,y);
+	}
 	n = maxn-1;
 	while(aws[n] == 0){
 		n--;
 	}
-	if(n == -1)
+	if(n == -1){
+		kase = 0;
 		printf("0\n");
+	}
+	if(kase == 1)
+		printf("-");
 	for(;n>=0;n--)
 	printf("%d", aws[n]);
 
