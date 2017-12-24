@@ -18,6 +18,6 @@ int main(){
 	int k;
 	k = CompactIntegers(a,n);
 	for(int i = 0; i < k; i++)
-		printf("%d",a[i]);
+		printf("%d ",a[i]);
 	return 0;
 }

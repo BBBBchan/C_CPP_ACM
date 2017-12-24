@@ -88,16 +88,16 @@ int main(){
 	if(a[0] == '-'){				//读取负号
 		for(int i = 1; i < x;i++)
 			a[i-1] = a[i];
-		a[x-1] = 0;
+		a[x-1] = 0;					//前移一位
 		x--;
-		p = 1;
+		p = 1;						//标记负号
 	}
 	if(b[0] == '-'){				//读取负号
 		for(int i = 1; i < y;i++)
 			b[i-1] = b[i];
-		b[y-1] = 0;
+		b[y-1] = 0;					//前移一位
 		y--;
-		q = 1;
+		q = 1;						//标记负号
 	}
 	if(p == 0&&q == 0){			//加法情况下对出现负号的情况进行处理，即同正同负为加，一正一负为减
 		sum(a,b,aws,x,y);
@@ -121,7 +121,9 @@ int main(){
 		printf("0");			//按情况得出0
 	for(;n>=0;n--)
 	printf("%d", aws[n]);		//输出结果
+	
 	printf("\n");
+
 /*减法*/
 	memset(aws,0,sizeof(aws));
 	kase = 0;
@@ -169,7 +171,6 @@ int main(){
 		printf("-");
 	for(;n>=0;n--)
 	printf("%d", aws[n]);
-
-
+	
 	return 0;
-}
+} 
