@@ -1,9 +1,6 @@
 #include <stdio.h>
-int b(int a){
-}
 int main(){
 	int a = 0;
-	b(a);
-	printf("%d\n", a );
+	printf("%d\n", '1' );
 	return 0;
 }
