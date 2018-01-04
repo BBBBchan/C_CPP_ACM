@@ -1,7 +1,7 @@
 #include <stdio.h>
 int main(){
 	printf("------------------------------------------------------------\n");
-	printf("%-15s%15s%15s%15s\n","CPUNTRY","AREA<10K km2>","POP<10K>","GDP<BIllion $>");
+	printf("你好%-15s%15s%15s%15s\n","CPUNTRY","AREA<10K km2>","POP<10K>","GDP<BIllion $>");
 	printf("------------------------------------------------------------\n");
 	printf("%-15s%15.2f%15.2f%15.2f\n","China",960.00,129500.00,1080.00);
 	printf("%-15s%15.2f%15.2f%15.2f\n","Iceland",10.30,27.57,8.20);
