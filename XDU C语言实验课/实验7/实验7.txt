@@ -1,0 +1,125 @@
+题目1：
+#include <stdio.h>
+struct fushu{
+	int a;
+	int b;
+}p,q;
+void sum(struct fushu p, struct fushu q){
+	struct fushu s;
+	s.a =  p.a + q.a;
+	s.b =  p.b + q.b;
+	if(s.a == 0 && s.b == 0)
+		printf("0\n");
+		else if(s.a != 0 && s.b == 0)
+			printf("%d\n",s.a);
+		else if(s.a == 0 && s.b != 0)
+			printf("%di\n",s.b);
+		else 
+			printf("%d + %di\n",s.a, s.b);
+}
+void jianfa(struct fushu p, struct fushu q){
+	struct fushu j;
+	j.a = p.a - q.a;
+	j.b = p.b - q.b;
+	if(j.a == 0 && j.b == 0)
+		printf("0\n");
+	else if(j.a != 0 && j.b == 0)
+		printf("%d\n",j.a);
+	else if(j.a == 0 && j.b != 0)
+		printf("%di\n",j.b);
+	else 
+		printf("%d + %di\n",j.a, j.b);
+
+}
+void chengfa(struct fushu p, struct fushu q){
+	struct fushu c;
+	c.a = p.a  * q.a - p.b * q.b;
+	c.b = p.a * q.b + p.b * q.a;
+	if(c.a == 0 && c.b == 0)
+		printf("0\n");
+	else if(c.a != 0 && c.b == 0)
+		printf("%d\n",c.a);
+	else if(c.a == 0 && c.b != 0)
+		printf("%di\n",c.b);
+	else 
+		printf("%d + %di\n",c.a, c.b);	
+
+}
+int chufa(struct fushu p, struct fushu q){
+	struct fushu c;
+	int x;
+	if(q.a == 0 && q.b == 0){
+		printf("illeagle\n");
+		return 0;
+	}
+	c.a = p.a  * q.a - p.b * q.b;
+	c.b = p.a * q.b + p.b * q.a;
+	x = q.a*q.a + p.a*p.a;
+	if(c.a == 0 && c.b == 0)
+		printf("0\n");
+	else if(c.a != 0 && c.b == 0)
+		printf("%d/%d\n",c.a,x);
+	else if(c.a == 0 && c.b != 0)
+		printf("%di/%d\n",c.b,x);
+	else 
+		printf("(%d + %di)/%d\n",c.a, c.b, x);
+
+}
+int main(){
+	scanf("%d %d", &p.a, &p.b);
+	scanf("%d %d", &q.a, &q.b);
+	sum(p,q);
+	jianfa(p,q);
+	chengfa(p,q);
+	chufa(p,q);
+
+	return 0; 
+}
+
+题目2：
+#include <stdio.h>
+#include <string.h>
+struct a{
+	char name[20];
+	char num[20];
+	float a;
+
+}info[10],temp;
+int find(char *s, struct a *info){
+	for(int i = 0; i < 10; i++)
+		if(strcmp(info[i].num,s) == 0){
+			return info[i].a;
+		}
+	return -1;
+}
+int main(){
+	float sum =0,average = 0;
+	for(int i = 0; i < 10; i++){
+		scanf("%s %s %f", &info[i].name, &info[i].num, &info[i].a);
+		sum += info[i].a;
+	}
+	average = sum/10.0;
+	for(int i = 0; i < 9; i++)
+		for(int j = 0; j < 9-i; j++){
+			if(strcmp(info[j].num,info[j+1].num) > 0)
+			{
+				temp = info[j]; info[j] = info[j+1]; info[j+1] = temp;
+			}
+		}
+	for(int i = 0; i < 10; i++)
+		printf("%s\n", info[i].num);
+	char s[20];
+	scanf("%s",s);
+	int k = find(s,info);
+	if(k == -1)
+		printf("not exist\n");
+		else 
+			printf("%d\n", k);
+	temp = info[0];
+	for(int i = 1; i < 10; i++){
+		if(info[i].a > temp.a)
+			temp = info[i];
+	}
+	printf("%s %s %d\n",temp.name,temp.num,temp.a );
+	return 0;
+}

@@ -7,6 +7,7 @@ int mystrcmp(char *a, char *b){
 		else if(a[i] < b[i])
 			return a[i] - b[i];
 	}
+
 	return 0;
 }
 int main(){
