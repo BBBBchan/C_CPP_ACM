@@ -1,42 +1,43 @@
-#include<stdio.h>
-#include<string.h>
-char a[100000];
-char b[100000];
-int c[1000000],d[1000000];
-int sum = 0;
+#include <stdio.h>
+void calender(int month);
 int main(){
-    int ans[5][5]={2,1,0,1,0,0,2,1,0,1,1,0,2,1,0,0,1,0,2,1,1,0,1,0,2};
-      scanf("%s",a);
-      scanf("%s",b);
-      for(int i=0;i<strlen(a);i++){
-              if(a[i]=='S')     c[i]=0;
-              else if(a[i]=='P')  c[i]=1;
-              else if(a[i]=='R')  c[i]=2;
-              else if(a[i]=='L')  c[i]=3;
-              else if(a[i]='K')   c[i]=4;
-              }
-      for(int i=0;i<strlen(b);i++){
-              if(b[i]=='S')       d[i]=0;
-              else if(b[i]=='P')  d[i]=1;
-              else if(b[i]=='R')  d[i]=2;
-              else if(b[i]=='L')  d[i]=3;
-              else if(b[i]='K')   d[i]=4;
-              }
-      for(int i = 0; i <= strlen(a)-strlen(b); i++){
-        int temp = 0;
-        for(int j = 0; j < strlen(b); j++){
-          if(ans[d[j]][c[i+j]] == 1)
-              temp++;
-          if(temp + strlen(b)-j < sum)
-              break;
-        } 
-        if(temp > sum)
-          sum = temp;
-    } 
-      printf("%d\n", sum);
-      return 0;
-     }
-
-     
-
-
+	int month;
+	scanf("%d",&month);
+	calender(month);
+	return 0;
+}
+void calender(int month){
+	printf("Calender 2014 - %02d\n",month);
+	printf("----------------------------\n");
+	printf("  Su  Mo  Tu  We  Th  Fr  Sa\n");
+	printf("----------------------------\n");
+	int day = 3;
+	int i,max;
+	switch(month){
+		case 1:	day +=0;	max = 31; break;
+		case 2:	day +=31;max = 28;break;
+		case 3: day +=31+28;max =31;	break;
+		case 4:	day +=31*2 + 28;	max = 30;break;
+		case 5: day +=31*2 + 30 +28;	max = 31;break;
+		case 6: day +=31*3 + 30 +28;	max = 30;break;
+		case 7: day +=31*3 +30*2+28;	max = 31;break;
+		case 8: day +=31*4 +30*2+28;	max = 31;break;
+		case 9:	day +=31*5 +30*2+28;	max = 30;break;
+		case 10:day +=31*5 +30*3+28;	max = 31;break;
+		case 11:day +=31*6 +30*3+28;	max = 30;break;
+		case 12:day +=31*6 +30*4+28;	max = 31;break;
+	}
+	day %= 7;
+	for(int x = 0;x < day; x++)
+		printf("    ");
+	
+	for(i = 1;i <= 7-day;i++)
+		printf("%4d",i);
+	printf("\n");
+	while(i<max){
+	 	for(int n=0;n<7;n++,i++)
+	 		if(i <= max) 
+	 			printf("%4d", i);
+	 	printf("\n");
+	 }	
+}
