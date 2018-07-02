@@ -1,12 +1,21 @@
 #include <stdio.h>
 int main(){
-	float a;
-	scanf("%f",&a);
-	if(a >= 0.0 && a <= 110.0)
-		printf("%.2f\n",a * 0.5 );
-	else if(a <= 210.0)
-		printf("%.2f\n", 55.0 + (a-110.0)*0.55);
-	else if(a > 210.0)
-		printf("%.2f\n",55.0 + 55.0 + (a - 210.0) * 0.70);
+	int n, m,a[10000];
+	scanf("%d %d",&n,&m);
+	for(int i = 0; i < n; i++)
+		scanf("%d",&a[i]);
+	for(int i = 0; i < n; i++)
+		for(int j = 0; j < n-i-1; j++)
+			if(a[j] < a[j+1]){
+				int k;
+				k = a[j];
+				a[j] = a[j+1];
+				a[j+1] = k;
+			}
+	if(m > n)
+		m = n;
+	for(int i = 0; i < m-1; i++)
+		printf("%d ",a[i]);
+	printf("%d",a[m-1]);
 	return 0;
 }
