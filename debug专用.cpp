@@ -1,43 +1,17 @@
 #include <stdio.h>
-void calender(int month);
+#include <string.h>
 int main(){
-	int month;
-	scanf("%d",&month);
-	calender(month);
-	return 0;
-}
-void calender(int month){
-	printf("Calender 2014 - %02d\n",month);
-	printf("----------------------------\n");
-	printf("  Su  Mo  Tu  We  Th  Fr  Sa\n");
-	printf("----------------------------\n");
-	int day = 3;
-	int i,max;
-	switch(month){
-		case 1:	day +=0;	max = 31; break;
-		case 2:	day +=31;max = 28;break;
-		case 3: day +=31+28;max =31;	break;
-		case 4:	day +=31*2 + 28;	max = 30;break;
-		case 5: day +=31*2 + 30 +28;	max = 31;break;
-		case 6: day +=31*3 + 30 +28;	max = 30;break;
-		case 7: day +=31*3 +30*2+28;	max = 31;break;
-		case 8: day +=31*4 +30*2+28;	max = 31;break;
-		case 9:	day +=31*5 +30*2+28;	max = 30;break;
-		case 10:day +=31*5 +30*3+28;	max = 31;break;
-		case 11:day +=31*6 +30*3+28;	max = 30;break;
-		case 12:day +=31*6 +30*4+28;	max = 31;break;
+	char a[100];
+	while(scanf("%s", &a) != EOF){
+		int b = strlen(a);
+		for(int i = 0; i < strlen(a)-3; i++)
+			printf("%c",a[i]);
+		printf(".");
+		if(a[b-1] >= '5')
+			while(a[b-i] = 0)
+		else
+			printf("%c",a[b-2]);
+		printf("\n");
 	}
-	day %= 7;
-	for(int x = 0;x < day; x++)
-		printf("    ");
-	
-	for(i = 1;i <= 7-day;i++)
-		printf("%4d",i);
-	printf("\n");
-	while(i<max){
-	 	for(int n=0;n<7;n++,i++)
-	 		if(i <= max) 
-	 			printf("%4d", i);
-	 	printf("\n");
-	 }	
+	return 0;
 }
