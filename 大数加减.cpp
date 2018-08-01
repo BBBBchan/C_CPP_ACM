@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-#define maxn 100
+#define maxn 1000
 void sum(char *a, char *b,char *aws,int n,int m){	//加法的外部函数，只支持正数相加
 	int c[maxn],d[maxn];
 	memset(c,0,sizeof(c));
@@ -77,12 +77,12 @@ int jianfa(char *a,char *b,char*aws,int x,int y){		//为减法调整顺序，使
 int main(){
 	char a[maxn],b[maxn];
 	int n = maxn-1,kase =0,k=0,p = 0,q = 0;
-	char aws[205];
+	char aws[2*maxn];
 /*加法*/
 	memset(aws,0,sizeof(aws));
 	memset(a,0,sizeof(a));
 	memset(b,0,sizeof(b));
-	scanf("%s %s",&a,&b);
+	scanf("%s %s",a,b);
 	int x = strlen(a);
 	int y = strlen(b);
 	if(a[0] == '-'){				//读取负号
