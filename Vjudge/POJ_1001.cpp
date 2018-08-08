@@ -10,7 +10,7 @@
 using namespace std;
 #define L(x) (1 << (x))
 const double PI = acos(-1.0);
-const int Maxn = 500;
+const int Maxn = 400;
 double ax[Maxn], ay[Maxn], bx[Maxn], by[Maxn];
 char sa[Maxn/2];
 int sum[Maxn];
@@ -110,7 +110,7 @@ int main()
             kase2++;
             i++;
         }
-        for(i = 0; i < l1 || i < kase2; i++){
+        for(i = 0; i < l1; i++){
             if(sa[l1-i-1] == '.'){
                 kase = i*n;
                 l1--;
@@ -121,7 +121,7 @@ int main()
             x2[i] = x1[i];
         }
         l2 = l1;
-        l = l1-1;
+        l = l1-1;               //默认为去掉小数点的长度
         while(n>1){
             l = solve(x1, l1, x2, l2, sum);
             for(i = 0; i<l || sum[i] >= 10; i++){
@@ -129,31 +129,23 @@ int main()
                 sum[i] %= 10;
             }
             l = i;
-            while(sum[l] <= 0 && l>0)    l--;
+            while(sum[l] <= 0 && l>0)    l--;              //去除前导0
             for(i = 0; i <=l; i++){
                 x2[i]=sum[i];
             }
             l2 = l+1; 
             n--;
         }
-        for(int j = 1; j < kase-l; j++){
+        for(int j = 1; j < kase-l; j++){                //小于1的时候输出前导0
             if(j == 1)
                 printf(".");
             printf("0");
         }
         int j = 0;
-        while(x2[j]==0 && j < kase){
+        while(x2[j]==0 && j < kase){                    //去除小数点后不必要的0
             j++;
         }
-        int k = l;
-        while(x2[k]== 0){
-            k--;
-        }
-        if(k<j){
-            printf("0\n");
-            continue;
-        }
-        for(i = k; i >= j ; i--){
+        for(i = l; i >= j ; i--){
             if(i+1 == kase)
                 printf(".");
             putchar(x2[i] + '0');     
