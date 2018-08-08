@@ -16,8 +16,8 @@ int main(int argc, char const *argv[])
 	for(int i = 0; i < m; i++){
 		a[i].count = 0;
 		scanf("%s",a[i].s);
-		for(int j = 0; j < n; j++){
-			for(int k = j+1; k<n; k++){
+		for(int j = 0; i < n; j++){
+			for(int k = j+1; k<n; j++){
 				if(a[i].s[j] > a[i].s[k])
 					a[i].count++;
 			}
