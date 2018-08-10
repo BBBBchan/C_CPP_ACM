@@ -15,9 +15,6 @@ int main(int argc, char const *argv[])
 	}
 	int ans = sum[0];
 	sort(sum,sum+n,cmp);
-	for(int i = 0; i < n; i++)
-		printf("%d ", sum[i]);
-	printf("\n");
 	for(i = 0; i < n; i++){
 		if(sum[i] == ans)
 			break;
