@@ -3,7 +3,7 @@
 #include <cstring>
 using namespace std;
 int n;
-int a[100],vis[100];
+int a[65],vis[65];
 int cmp(int a, int b){
 	return a>b;
 }
@@ -12,9 +12,8 @@ int dfs(int pos, int sum, int clen, int cstick, int finstick){
 		return 1;
 	if(sum == clen)
 		return dfs(0,0,clen,cstick+1,finstick);
-	int pre = 0;
-	for(int i = pos; i < n; i++){
-		if(vis[i]||sum+a[i]==clen||pre==a[i])
+	for(int i = pos,pre=0; i < n; i++){
+		if(vis[i]||sum+a[i]>clen||pre==a[i])
 			continue;
 		pre = a[i];
 		vis[i] = 1;
