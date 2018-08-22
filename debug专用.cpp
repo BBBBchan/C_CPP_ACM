@@ -1,47 +1,42 @@
-#include <cstdio>
-#include <algorithm>
-#include <cstring>
-using namespace std;
-int n;
-int a[100],vis[100];
-int cmp(int a, int b){
-	return a>b;
-}
-int dfs(int pos, int sum, int clen, int cstick, int finstick){
-	if(cstick == finstick)
-		return 1;
-	if(sum == clen)
-		return dfs(0,0,clen,cstick+1,finstick);
-	int pre = 0;
-	for(int i = pos; i < n; i++){
-		if(vis[i]||sum+a[i]==clen||pre==a[i])
-			continue;
-		pre = a[i];
-		vis[i] = 1;
-		if(dfs(i+1,sum+a[i],clen,cstick,finstick))
-			return 1;
-		vis[i] = 0;
-		if(pos == 0)
-			return 0;
-	}
-	return 0;
-}
+#include <stdio.h>
+#include <string.h>
 int main(int argc, char const *argv[])
 {
-	while(scanf("%d", &n) && n){
-		int sum=0,max=0;
-		for(int i = 0; i < n; i++){
-			scanf("%d", &a[i]);
-			sum+=a[i];
-		}
-		sort(a,a+n,cmp);
-		for(int i = n; i > 0; i--){
-			memset(vis,0,sizeof(vis));
-			if(sum%i==0 && dfs(0,0,sum/i,0,i)){
-				printf("%d\n", sum/i);
-				break;
+	int t;
+	scanf("%d", &t);
+	char a[12],b[12],c[10];
+	int kase[12];
+	while(t--){
+		memset(kase,-1,sizeof(kase));
+		for(int j = 0; j < 3; j++){
+			scanf("%s %s %s", a, b, c);
+			if(c[0] == 'e'){
+				for(int i = 0; i < strlen(a); i++)
+					kase[a[i]-'A'] = 1;
+				for(int i = 0; i < strlen(b); i++)
+					kase[b[i]-'A'] = 1;
+			}
+			else{
+				for(int i = 0; i < strlen(a); i++){
+					if(kase[a[i]-'A'] == 1)
+						continue;
+					else
+						kase[a[i]-'A'] = 0;
+				}
+				for(int i = 0; i < strlen(b); i++){
+					if(kase[b[i]-'A'] == 1)
+						continue;
+					else
+						kase[b[i]-'A'] = 0;
+				}
 			}
 		}
+		for(int i = 0; i < 12; i++)
+			if(kase[i] == 0){
+				printf("%c is the counterfeit coin and it is light.\n", i+'A');
+				break;
+			}
 	}
 	return 0;
 }
+
