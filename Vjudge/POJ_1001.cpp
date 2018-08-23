@@ -1,12 +1,7 @@
-#include <iostream>
 #include <cstdio>
 #include <algorithm>
 #include <cstring>
 #include <cmath>
-#include <map>
-#include <queue>
-#include <set>
-#include <vector>
 using namespace std;
 #define L(x) (1 << (x))
 const double PI = acos(-1.0);
