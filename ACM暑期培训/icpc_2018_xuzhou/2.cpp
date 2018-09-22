@@ -57,6 +57,6 @@ long long calc(long long x)
 int main(){
     shake();
     cin>>a>>b;
-    cout<<calc(b)-calc(a-1)<<endl;
+    cout<<calc(b0)-calc(a-1)<<endl;
     return 0;
 }
