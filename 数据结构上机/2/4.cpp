@@ -54,10 +54,10 @@ void Mark(PosType curpos, int mode){
 PosType Nextpos(PosType curpos, int di){
     PosType nextpos;
     switch(di){
-        case 1: nextpos.x= curpos.x; nextpos.y = curpos.y+1; break;
-        case 2: nextpos.x= curpos.x+1; nextpos.y = curpos.y; break;
-        case 3: nextpos.x= curpos.x; nextpos.y = curpos.y-1; break;
-        case 4: nextpos.x= curpos.x-1; nextpos.y = curpos.y; break;
+        case 1: nextpos.x= curpos.x+1; nextpos.y = curpos.y; break;
+        case 2: nextpos.x= curpos.x; nextpos.y = curpos.y+1; break;
+        case 3: nextpos.x= curpos.x-1; nextpos.y = curpos.y; break;
+        case 4: nextpos.x= curpos.x; nextpos.y = curpos.y-1; break;
     }
     return nextpos;
 }
