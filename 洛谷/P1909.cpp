@@ -1,7 +1,7 @@
 #include <cstdio>
 int main(int argc, char const *argv[])
 {
-	int n,min = 1e9+7,temp;
+	int n,min = 1e9+7, temp;
 	int a,b;
 	scanf("%d", &n);
 	for(int i = 0; i < 3; i++){
