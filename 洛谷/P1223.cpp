@@ -8,8 +8,7 @@ struct que{
 bool cmp(que a, que b){
 	return a.time<b.time;
 }
-int main(int argc, char const *argv[])
-{
+int main(int argc, char const *argv[]){
 	int n;
 	scanf("%d", &n);
 	for(int i = 0; i < n; i++){
