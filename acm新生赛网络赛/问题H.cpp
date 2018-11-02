@@ -14,18 +14,15 @@ void ss(char s1[],char s2[],int n,int m,char c[])
     for(i=0; i<n; i++)  
         c[i]=a[i]-b[i];  
     for(i=0;i<n;i++)  
-      if(c[i]<0)  
-        {  
-            while(c[i]<0)  
-            {  
+      if(c[i]<0){  
+            while(c[i]<0){  
               c[i+1]=c[i+1]-1;  
               c[i]+=10;
                
             }  
         }
 }
-int main()  
-{  
+int main(){  
     int n1,m1,n2,m2,i,j,k,kk1,kk2,x,y;  
     memset(s1,0,sizeof(s1));  
     memset(s2,0,sizeof(s2));
@@ -41,12 +38,12 @@ int main()
         m2=strlen(s4);
         if(n1 < m1)    
         ss(s2,s1,m1,n1,c);
-    else{
-        k = strcmp(s1,s2);
-        if(k == 0)
-            c[0] = -1;
-        else ss(s2,s1,m1,n1,c);
-    }
+        else{
+            k = strcmp(s1,s2);
+            if(k == 0)
+                c[0] = -1;
+            else ss(s2,s1,m1,n1,c);
+        }
         if(n2 < m2) 
         ss(s4,s3,m2,n2,d);
         else{
@@ -65,7 +62,8 @@ int main()
             printf("Ting");
         else if(y > x)
             printf("Yu");
-        else{int i =x;
+        else{
+            int i =x;
             while(i >=0  && (c[i] == d[i])){
                 i--;
             }
