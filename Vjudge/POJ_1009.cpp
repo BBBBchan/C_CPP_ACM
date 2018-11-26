@@ -80,6 +80,6 @@ int main(int argc, char const *argv[])
 		printf("%d %d\n", temp.code, pos_sum-temp.pos+1);
 		printf("0 0\n");
 	}
-	printf("0");
+	printf("0\n");
 	return 0;
 }

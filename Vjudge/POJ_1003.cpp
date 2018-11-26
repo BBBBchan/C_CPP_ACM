@@ -7,9 +7,9 @@ int main(int argc, char const *argv[])
 		int count = 1;
 		while(ans < n){
 			count++;
-			ans = ans + 1.0/count;
+			ans = ans + 1.0/(count+1);
 		}
-		printf("%d\n", count);
+		printf("%d card(s)\n", count);
 	}
 	return 0;
 }
