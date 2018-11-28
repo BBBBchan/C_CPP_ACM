@@ -34,7 +34,7 @@ void HuffmanCoding(Huffmantree &HT, HuffmanCode *HC, node *w){
 		HT[i].lchild = 0;
 		HT[i].rchild = 0;
 	}
-	for(int i = maxn+1; i <= m; i++){
+	for(int i = maxn+1; i <= m; i++){		//计算权重，建立哈夫曼树
 		min1.data = 1e9;
 		min2.data = 1e9;
 		for(int j = 1; j< i; j++){
@@ -60,7 +60,7 @@ void HuffmanCoding(Huffmantree &HT, HuffmanCode *HC, node *w){
 	for(int i = maxn+1; i <= m; i++){
 		printf("  %f %d %d %d\n", HT[i].weight, HT[i].parent, HT[i].lchild, HT[i].rchild);
 	}
-	for(int i = 1; i <= maxn; i++){
+	for(int i = 1; i <= maxn; i++){					//对于每个字符获取其哈夫曼编码
 		int start = maxn-1,count = 0;
 		char cd[maxn];
 		cd[maxn-1] = '\0';
