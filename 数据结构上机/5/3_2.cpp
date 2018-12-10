@@ -2,13 +2,14 @@
 #include <cstring>
 #define maxnsize 97
 struct info{
-	int kase;
 	char phone[12];
 	char name[25];
 	char adress[55];
+	info *next;
 };
 typedef struct{
-    info data[maxnsize];    
+    info data[maxnsize]; 
+    int kase[maxnsize];   
     int count;
     int size;       
 }HashTable;
@@ -16,7 +17,7 @@ void init(HashTable &H){
 	H.size = maxnsize;
 	H.count = 0;
 	for(int i = 0; i < H.size; i++){
-		H.data[i].kase = 0;
+		H.kase[i] = 0;
 	}
 }
 int hash(info K){
@@ -29,14 +30,15 @@ int hash(info K){
 	return p;
 }
 int SearchHash(HashTable H, info K){
-	int p = hash(K);
-	while(H.data[p].kase && p<H.size){
-		if(!strcmp(H.data[p].phone,K.phone) && !strcmp(H.data[p].name,K.name) && !strcmp(H.data[p].adress,K.adress)){
+	int p = hash(K),temp = 0;
+	info q = H.data[p];
+	if(H.kase[p] && p<H.size){
+		while(temp < H.kase[p]&&(!strcmp(H.data[p].phone,K.phone) && !strcmp(H.data[p].name,K.name) && !strcmp(H.data[p].adress,K.adress))){
+			q = *q.next;
+			temp ++;
+		}
+		if(temp < H.kase[p])
 			return 1;
-		}
-		else{
-			p = (p+5)%(H.size-1) ;
-		}
 	}
 	return 0;
 }
@@ -47,17 +49,23 @@ void InsertHash(HashTable *H, info K){
 		return;
 	else{
 		int p = hash(K);
-		if(H->data[p].kase == 0){
+		if(H->kase[p] == 0){
 			H->data[p] = K;
-			H->data[p].kase = 1;
+			H->kase[p] += 1;
+			H->data[p].next = NULL;
 			return;
 		}
-		while(H->data[p].kase == 1 && p < H->size)
-			p = (p+5)%(H.size-1) ;
+		int temp = 0;
+		info q = H->data[p];
+		while(temp < H->kase[p]-1 && p < H->size){
+			q = *q.next;
+			temp++;
+		}
 		if(p >= H->size)
 			return;
-		H->data[p] = K;
-		H->data[p].kase = 1;
+		K.next = NULL;
+		*q.next = K;
+		H->kase[p] += 1;
 		H->count++;
 	}
 }
@@ -69,6 +77,7 @@ int main(int argc, char const *argv[]){
 	scanf("%d", &n);
 	for(int i = 0; i < n; i++){
 		scanf("%s %s %s", temp.phone, temp.name, temp.adress);
+		temp.next = NULL;
 		InsertHash(&H,temp);
 	}
 	if(SearchHash(H,temp))
