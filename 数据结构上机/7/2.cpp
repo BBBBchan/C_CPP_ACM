@@ -5,8 +5,7 @@ using namespace std;
 int vis[120] = {0};
 int n, m;
 struct edge{
-	int to;
-	int len;
+	int to, len;
 };
 vector< vector< edge>> G(120);
 void dfs(int i){

@@ -6,7 +6,7 @@ queue <int> qe;
 int vis[120] = {0};
 int a[120][120];
 void bfs(int i){
-	int cur, temp;
+	int cur;
 	while(!qe.empty()){
 		cur = qe.front();
 		if(vis[cur] == 0){

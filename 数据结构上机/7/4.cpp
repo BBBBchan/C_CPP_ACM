@@ -4,8 +4,7 @@
 using namespace std;
 struct edge
 {
-	int to;
-	int len;
+	int to, len;
 };
 queue <int> qe;
 vector < vector<edge>> G(120);
