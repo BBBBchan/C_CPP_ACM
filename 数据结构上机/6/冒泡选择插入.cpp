@@ -3,6 +3,7 @@
 #include<cstdlib>
 int a[10000];
 int ans=0;
+//冒泡排序
 void BuluBulu(int *a, int n){
 	for(int i = 0; i < n; i++){
 		for(int j = i; j < n; j++){
@@ -15,6 +16,7 @@ void BuluBulu(int *a, int n){
 		}
 	}
 }
+//选择排序
 void select(int *a, int n){
 	for(int i = 0; i < n-1; i++){
 		int min = i;
@@ -26,7 +28,7 @@ void select(int *a, int n){
 		a[i] = temp;
 	}
 }
-
+//插入排序
 void insert(int *a, int n){
 	int key;
 	for(int i = 1; i < n; i++){

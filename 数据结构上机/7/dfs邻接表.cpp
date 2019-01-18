@@ -1,30 +1,24 @@
+// 邻接表的dfs遍历
 #include <cstdio>
-#include <queue>
+#include <iostream>
 #include <vector>
 using namespace std;
-struct edge
-{
+int vis[120] = {0};
+int n, m;
+struct edge{
 	int to, len;
 };
-queue <int> qe;
-vector < vector<edge>> G(120);
-int n, m;
-int vis[120] = {0};
-void bfs(int i){
-	int cur;
-	while(!qe.empty()){
-		cur = qe.front();
-		if(vis[cur] == 0){
-			vis[cur] = 1;
-			qe.pop();
-			printf("%d ", cur+1);
-			for(int j = 0; j < G[cur].size(); j++){
-				if(vis[G[cur][j].to] == 0)
-					qe.push(G[cur][j].to);
-			}
+vector< vector< edge>> G(120);
+void dfs(int i){
+	if(vis[i] == 1)
+		return;
+	else{
+		vis[i] = 1;
+		printf("%d ", i+1);
+		for(int j = 0; j < G[i].size(); j++){
+			if(vis[j] == 0)
+				dfs(j);
 		}
-		else
-			qe.pop();
 	}
 }
 int main(int argc, char const *argv[])
@@ -38,10 +32,7 @@ int main(int argc, char const *argv[])
 		G[r1.to].push_back(r2);
 	}
 	for(int i = 0; i < n; i++){
-		if(vis[i] == 0){
-			qe.push(i);
-			bfs(i);
-		}
+		dfs(i);
 	}
 	return 0;
 }

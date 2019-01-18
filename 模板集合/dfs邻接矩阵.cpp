@@ -1,3 +1,4 @@
+// 邻接矩阵的dfs遍历
 #include <cstdio>
 int a[100][100];
 int vis[100] = {0};

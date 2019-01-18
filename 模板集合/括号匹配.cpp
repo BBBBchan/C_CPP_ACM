@@ -42,14 +42,14 @@ void Check(char *expr){
 		else if(expr[i] != '(' || expr[i] != ')' || expr[i] != '[' || expr[i] != ']' || expr[i] != '{' || expr[i] != '}')
 			continue;
 		else{
-			printf("No\n");
+			printf("NO\n");
 			return;
 		}
 	}
 	if(S.top == S.base)
-		printf("Yes\n");
+		printf("YES");
 	else
-		printf("No\n");
+		printf("NO\n");
 }
 int main(int argc, char const *argv[])
 {
