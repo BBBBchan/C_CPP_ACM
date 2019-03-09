@@ -9,4 +9,4 @@ bool find(int *a, int left, int right, int key){
 	else
 		return 1;
 	return 0;
-}
+}//二分查找

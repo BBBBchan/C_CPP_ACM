@@ -1,4 +1,4 @@
-int f[100005] = {0};
+ int f[100005] = {0};
 int find(int x)//并查集
 {
     if (f[x]==x) 

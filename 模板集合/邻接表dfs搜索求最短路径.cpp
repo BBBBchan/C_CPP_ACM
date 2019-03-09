@@ -1,7 +1,7 @@
 #include <cstdio>
 #include <vector>
 #include <iostream>
-using namespace std;
+using namespace std;//dfs最短路 
 struct edge{
 	int to;
 	int len;

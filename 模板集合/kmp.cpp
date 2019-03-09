@@ -17,7 +17,6 @@ void GetNext(char *P, int next[]){
             j = next[j];
     }
 }
-
 /* 在 S 中找到 P 第一次出现的位置，返回位置 */
 int KMP(char *S, char *P, int next[]){
     GetNext(P, next);
