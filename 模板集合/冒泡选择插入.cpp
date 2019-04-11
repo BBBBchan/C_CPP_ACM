@@ -14,6 +14,7 @@ void BuluBulu(int *a, int n){
 		}
 	}
 }
+
 //选择排序
 void select(int *a, int n){
 	for(int i = 0; i < n-1; i++){
