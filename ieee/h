@@ -1,0 +1,25 @@
+#include<iostream>
+#include<cstdio>
+#include<cstdlib>
+#include<algorithm>
+#include<map>
+#include<cstring>
+#define MAXN 100010
+using namespace std;
+struct point{
+	int id;
+	string s[21];
+}po[MAXN];
+int main()
+    {
+    	int i,j,k,t;
+    	while(~scanf("%d",&t))
+    	{
+    		string s;
+    		while(cin>>s)
+    		{
+
+    		}
+    	}
+    	return 0;
+    }
