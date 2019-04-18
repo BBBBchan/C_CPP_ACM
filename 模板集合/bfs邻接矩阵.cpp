@@ -1,3 +1,6 @@
+/*BFS邻接矩阵*/
+/*BFS邻接矩阵版，n*m的矩阵表示图，1表示有边，0表示无边，使用方法：bfs(i)，从第i个节点开始bfs，直到遍历整个联通区块*/
+
 #include <cstdio>
 #include <queue>
 using namespace std;

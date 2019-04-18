@@ -1,4 +1,5 @@
 // 邻接表bfs
+/*BFS邻接表版，注意vector的使用，使用邻接表储存图，G[i]中的所有元素表示与i节点相邻的所有节点，注意双向图写法*/
 #include <cstdio>
 #include <queue>
 #include <vector>

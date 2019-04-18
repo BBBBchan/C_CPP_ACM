@@ -1,4 +1,5 @@
 // Dij求最短路
+/*Dijkstra求最短路问题，使用邻接矩阵存图，注意双向，使用方法：Dijkstra(s)可以求出s到其他所有点的最短路径，并存在d数组中*/
 #include <cstdio>
 #include <iostream>
 using namespace std;
@@ -7,11 +8,13 @@ int d[10005];
 bool used[10005];
 int n, m;
 void Dijkstra(int s){
+    //初始化数据
     for(int i = 0; i < n; i++){
         d[i] = 1e9+7;
         used[i] = false;
     }
     d[s] = 0;
+    
     while(1){
         int v = -1;
         for(int u = 0; u < n; u++){

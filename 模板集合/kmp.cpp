@@ -1,3 +1,4 @@
+/*KMP算法，求S串在p串中第一次出现的位置，返回位置，使用方法:KMP(s,p,next)，其中next数组由GetNext函数求出*/
 #include <iostream>
 #include <string>
 using namespace std;
