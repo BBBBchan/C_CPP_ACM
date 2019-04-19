@@ -1,4 +1,5 @@
-//kruskal求最小生成树
+//kruskal求最小生成树 && 并查集
+/*Kruskal求最小生成树，带并查集模板，返回结果ans为整张最小生成树的权重。 */
 #include<iostream>
 #include<cstdio>
 #include<algorithm>

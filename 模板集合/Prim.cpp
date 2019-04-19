@@ -1,4 +1,5 @@
 //Prim求最小生成树
+/*Prim求最小生成树，每次添加顶点，*/
 #include <cstdio>
 #include <iostream>
 using namespace std;
