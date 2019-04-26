@@ -1,3 +1,4 @@
+/*FFT求大数乘法，只支持正整数相乘*/
 #include <iostream>
 #include <cstdio>
 #include <algorithm>
@@ -105,7 +106,7 @@ int main()
         for(i = 0; i < l2; i++)
             x2[i] = sb[l2-i-1]-'0';
         l = solve(x1, l1, x2, l2, sum);
-        for(i = 0; i<l || sum[i] >= 10; i++)
+        for(i = 0; i<l || sum[i] >= 10; i++) //处理进位
         {
             sum[i + 1] += sum[i] / 10;
             sum[i] %= 10;

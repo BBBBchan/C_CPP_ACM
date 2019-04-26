@@ -16,7 +16,6 @@ int main()
             if(temp > 1)
                 sum++;
         }
-        printf("sum=%d\n", sum);
         if((sum == 0 && count & 1) || (!s && sum >= 2))
             printf("orzwang9897\n");
         else

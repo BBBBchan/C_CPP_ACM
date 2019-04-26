@@ -1,3 +1,5 @@
+/*两种KMP算法，第一章实现在 S 中找到 P 第一次出现的位置，返回位置
+  第二中实现寻找S在P中出现的次数*/
 #include <iostream>
 #include <string>
 #include <cstring>
