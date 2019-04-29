@@ -1,12 +1,12 @@
-#include <cstdio>
-#include <iostream>
-#include <string>
+#include "tset.h"
+#include "test2.h"
+#include  <string>
 using namespace std;
 int main(int argc, char const *argv[])
 {
 	freopen("in.cpp", "r", stdin);
 	string a;
-	string b = "#include";
+	string b ;
 	while(getline(cin,a)){
 		string c;
 		if(a.find(b) != string::npos){
