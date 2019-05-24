@@ -1,0 +1,6 @@
+﻿  test1.cpp
+test1.obj : error LNK2019: 无法解析的外部符号 _mysql_error@4，该符号在函数 "bool __cdecl ConnectDatabase(void)" (?ConnectDatabase@@YA_NXZ) 中被引用
+test1.obj : error LNK2019: 无法解析的外部符号 _mysql_init@4，该符号在函数 "bool __cdecl ConnectDatabase(void)" (?ConnectDatabase@@YA_NXZ) 中被引用
+test1.obj : error LNK2019: 无法解析的外部符号 _mysql_real_connect@32，该符号在函数 "bool __cdecl ConnectDatabase(void)" (?ConnectDatabase@@YA_NXZ) 中被引用
+C:\Users\Public\Documents\mysql-8.0.13-winx64\lib\libmysql.lib : warning LNK4272: 库计算机类型“x64”与目标计算机类型“x86”冲突
+C:\Users\sbysb\source\repos\test1\Debug\test1.exe : fatal error LNK1120: 3 个无法解析的外部命令
