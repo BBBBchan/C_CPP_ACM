@@ -22,7 +22,7 @@
     <VCProjectVersion>16.0</VCProjectVersion>
     <ProjectGuid>{02B848F8-F97F-4CFB-8A1D-1F617DC38EF9}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>test1</RootNamespace>
+    <RootNamespace>Card_manage_system</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
     <ProjectName>Card_manage_system</ProjectName>
   </PropertyGroup>
