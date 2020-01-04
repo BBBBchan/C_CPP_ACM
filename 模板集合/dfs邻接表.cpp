@@ -9,6 +9,7 @@ struct edge{
 	int to, len;
 };
 vector< vector< edge>> G(120);
+
 void dfs(int i){
 	if(vis[i] == 1)
 		return;
@@ -21,6 +22,7 @@ void dfs(int i){
 		}
 	}
 }
+
 int main(int argc, char const *argv[])
 {
 	scanf("%d %d", &n, &m);
