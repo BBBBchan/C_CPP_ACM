@@ -17,8 +17,8 @@ void dfs(int i){
 		vis[i] = 1;
 		printf("%d ", i+1);
 		for(int j = 0; j < G[i].size(); j++){
-			if(vis[j] == 0)
-				dfs(j);
+			if(vis[G[i][j].to] == 0)
+				dfs(G[i][j].to);
 		}
 	}
 }
