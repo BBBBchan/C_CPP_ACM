@@ -12,9 +12,10 @@ int main(int argc, char const *argv[])
 	sort(a,a+n);
 	int ansl = -1, ansr = -1, kase = 0;
 	for(int i = 0; i < n; i++){
-		int left = i, right = n-1;
+		int left = i+1, right = n-1;
+		// printf("%d %d %d\n", i, left,right);
 		if(kase){break;}
-		while(right > left){
+		while(right >= left){
 			int mid = left + (right-left)/2;
 			if(a[i] + a[mid] > x){
 				right = mid-1;
@@ -28,7 +29,7 @@ int main(int argc, char const *argv[])
 				kase = 1;
 				break;
 			}
-			// printf("%d %d %d\n", i, left,right);
+			
 		}
 		// printf("%d %d\n", ansl, ansr);
 	}
