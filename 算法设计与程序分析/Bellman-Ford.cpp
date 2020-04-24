@@ -32,7 +32,7 @@ bool BellmanFord(int s){
 			}
 		
 		}
-		printf("d:");
+		printf("内核d:");
 		for(int x = 0; x < n; x++){
 			printf("%d ", d[x]);
 		}
