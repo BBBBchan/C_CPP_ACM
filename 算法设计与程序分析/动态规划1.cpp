@@ -13,9 +13,12 @@ int main(int argc, char const *argv[])
 	for(int i = 0; i < n; i++){
 		scanf("%d", &a[i]);
 	}
+	// 边界
 	dp[0] = a[0];
 	for(int i = 1; i < n; i++){
+		//状态转移方程
 		dp[i] = max(dp[i-1]+a[i], a[i]);
+		//维护dp[i]的最大值，即当前最大的连续子序列和
 		if(dp[i] > ans){
 			ans = dp[i];
 		}

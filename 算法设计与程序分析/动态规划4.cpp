@@ -18,7 +18,7 @@ int main(int argc, char const *argv[])
 	}
 	//初始化滚动数组
 	for(int i = 0; i <= v; i++){
-		dp[v] = 0;
+		dp[i] = 0;
 	}
 
 	for(int i = 0; i <= n; i++){
