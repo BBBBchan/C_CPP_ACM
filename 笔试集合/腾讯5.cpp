@@ -32,7 +32,6 @@ int main(int argc, char const *argv[])
 		}
 		for(int i = 0; i < 7; i++){
 			int temp = find(i);
-			printf("temp=%d\n", temp);
 			visited[temp]++;
 			if(visited[temp] > ans){
 				ans = temp;
